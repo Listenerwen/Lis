@@ -16,10 +16,8 @@ import com.github.pagehelper.PageInfo;
 
 /**
  * 
- * @ClassName ItemServiceImpl
- * @Description 商品管理Service实现类
- * @author 西忒乐
- * @date 2017年6月28日 下午5:45:06
+ * @author 是梦就会醒
+ * @date 2017年6月29日
  */
 @Service
 public class ItemServiceImpl implements ItemService {
