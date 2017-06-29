@@ -19,6 +19,11 @@ public class PageController {
 		return "index";
 	}
 	
+	
+
+	/**
+	 * 跳转页面
+	 */
 	@RequestMapping("/{page1}")
 	public String showPages(@PathVariable String page1) {
 		return page1;

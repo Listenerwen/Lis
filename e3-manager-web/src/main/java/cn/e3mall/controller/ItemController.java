@@ -15,7 +15,7 @@ import cn.e3mall.service.ItemService;
  * 
  * @ClassName ItemController
  * @Description 商品管理Controller
- * @author 西忒乐
+ * @author 是梦就会醒
  * @date 2017年6月28日 下午5:42:57
  */
 @Controller
