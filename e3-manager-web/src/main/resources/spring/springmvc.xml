@@ -21,6 +21,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<mvc:default-servlet-handler />
+	
 	<!-- 引用服务 -->
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="e3-manager-web"/>

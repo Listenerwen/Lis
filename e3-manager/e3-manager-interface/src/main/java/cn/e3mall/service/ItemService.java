@@ -1,5 +1,6 @@
 package cn.e3mall.service;
 
+import cn.e3mall.common.pojo.DataGridResult;
 import cn.e3mall.pojo.TbItem;
 
 /**
@@ -19,5 +20,16 @@ public interface ItemService {
 	 * @return
 	 */
 	TbItem getItemById(Long itemId);
+
+	/**
+	 * 分页查询商品
+	 * 
+	 * @param page
+	 *            起始页
+	 * @param rows
+	 *            每页显示记录数
+	 * @return
+	 */
+	DataGridResult getItemList(int page, int rows);
 
 }
