@@ -1,6 +1,7 @@
 package cn.e3mall.service;
 
 import cn.e3mall.common.pojo.DataGridResult;
+import cn.e3mall.common.pojo.E3Result;
 import cn.e3mall.pojo.TbItem;
 
 /**
@@ -31,5 +32,15 @@ public interface ItemService {
 	 * @return
 	 */
 	DataGridResult getItemList(int page, int rows);
+	/**
+	 * 上传图片
+	 * 
+	 * @param item
+	 *            
+	 * @param desc
+	 *            照片描述
+	 * @return
+	 */
+	E3Result addItem(TbItem item, String desc);
 
 }

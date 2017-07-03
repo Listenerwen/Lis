@@ -1,13 +1,18 @@
 package cn.e3mall.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.e3mall.common.pojo.DataGridResult;
+import cn.e3mall.common.pojo.E3Result;
+import cn.e3mall.common.utils.IDUtils;
+import cn.e3mall.mapper.TbItemDescMapper;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
+import cn.e3mall.pojo.TbItemDesc;
 import cn.e3mall.pojo.TbItemExample;
 import cn.e3mall.service.ItemService;
 
@@ -24,6 +29,8 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private TbItemMapper itemMapper;
+	@Autowired
+	private TbItemDescMapper itemDescMapper;
 
 	/**
 	 * 根据ID查询商品
@@ -54,4 +61,26 @@ public class ItemServiceImpl implements ItemService {
 		return result;
 	}
 
+	@Override
+	public E3Result addItem(TbItem item, String desc) {
+		// 1、生成商品id
+		long itemId = IDUtils.genItemId();
+		// 2、补全pojo的属性
+		item.setId(itemId);
+		//商品状态，1-正常，2-下架，3-删除
+		item.setStatus((byte) 1);
+		item.setCreated(new Date());
+		item.setUpdated( new Date());
+		// 3、向商品表插入数据
+		itemMapper.insert(item);
+		// 4、向商品描述中插入数据
+		TbItemDesc itemDesc = new TbItemDesc();
+		itemDesc.setItemId(itemId);
+		itemDesc.setItemDesc(desc);
+		itemDesc.setCreated(new Date());
+		itemDesc.setUpdated(new Date());
+		itemDescMapper.insert(itemDesc);
+		// 5、返回OK
+		return E3Result.ok();
+	}
 }
