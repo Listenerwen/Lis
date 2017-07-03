@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.e3mall.common.pojo.DataGridResult;
+import cn.e3mall.common.pojo.E3Result;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.service.ItemService;
 
@@ -54,5 +55,12 @@ public class ItemController {
 		DataGridResult result = itemService.getItemList(page, rows);
 		return result;
 	}
+	@RequestMapping("/item/save")
+	@ResponseBody
+	public E3Result addItem(TbItem item, String desc) {
+		E3Result result = itemService.addItem(item, desc);
+		return result;
+	}
+	
 
 }
